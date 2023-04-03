@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import CityList from './components/CityList'
+import CityListWithContext from './components/CityListWithContext'
+import { CityContext } from './data/CityContext.js'
 import './App.css'
 
 /*
@@ -26,10 +28,15 @@ function App() {
 		setCities(newCities)
 	}
 
+	const contextValue = { cities, deleteCity }
+
 	return (
 		<div className="App">
 			<h1> City list </h1>
 			<CityList cities={cities} deleteCity={deleteCity} />
+			<CityContext.Provider value={contextValue}>
+				<CityListWithContext />
+			</CityContext.Provider>
 		</div>
 	)
 }
