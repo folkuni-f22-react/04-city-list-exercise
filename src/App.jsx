@@ -19,10 +19,17 @@ const data = [
 ]
 
 function App() {
+	const [cities, setCities] = useState(data)
+
+	const deleteCity = (cityId) => {
+		let newCities = cities.filter(city => city.id !== cityId)
+		setCities(newCities)
+	}
+
 	return (
 		<div className="App">
 			<h1> City list </h1>
-			<CityList cities={data} />
+			<CityList cities={cities} deleteCity={deleteCity} />
 		</div>
 	)
 }
