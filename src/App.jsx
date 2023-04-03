@@ -3,6 +3,7 @@ import CityList from './components/CityList'
 import CityListWithContext from './components/CityListWithContext'
 import { CityContext } from './data/CityContext.js'
 import './App.css'
+import CityListWithRecoil from './components/CityListWithRecoil'
 
 /*
 4a Skapa en lista med objekt som representerar städer. Objekten ska ha namn och antal invånare. Gör en komponent som tar emot listan med props och renderar den som ett <ul> element.
@@ -34,9 +35,12 @@ function App() {
 		<div className="App">
 			<h1> City list </h1>
 			<CityList cities={cities} deleteCity={deleteCity} />
+			
 			<CityContext.Provider value={contextValue}>
 				<CityListWithContext />
 			</CityContext.Provider>
+
+			<CityListWithRecoil />
 		</div>
 	)
 }
